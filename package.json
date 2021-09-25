@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Faysalahmed-31/weekend-jquery-server-calculator./issues"
   },
-  "homepage": "https://github.com/Faysalahmed-31/weekend-jquery-server-calculator.#readme"
+  "homepage": "https://github.com/Faysalahmed-31/weekend-jquery-server-calculator.#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
