@@ -7,16 +7,19 @@ let operationVariable;
 function onReady() {
     console.log('on Ready');
 
-    //$('#submitBtn').on('click', sendMath);
+    $('#submitBtn').on('click', sendMath);
     $('.operationBtn').on('click', getClickedOperation);
     $('#clearBtn').on('click', clearInputs);
 }
+
+
 // Clears inputs 
 function clearInputs() {
     $('#inputOne').val('');
     $('#inputTwo').val('');
     
 } 
+
 
 // function to get clicked operation using 'this'
 function getClickedOperation() {
@@ -35,6 +38,26 @@ function getClickedOperation() {
         operationVariable = '/';
     }
 }
+
+// post function that captures inputs and sends to POST
+function sendMath() {
+    console.log('Inside sendMath');
+    let mathCalc = {
+        inputOne: $('#inputOne').val(),
+        inputTwo: $('#inputTwo').val(),
+        data: operationVariable
+    };
+    // sends data to post then runs getMathData(); funciton once response is received
+    $.ajax({
+        method: 'POST',
+        url: '/calculate',
+        data: mathCalc
+    }).then((response) => {
+        console.log('response is ', response);
+        getMathData();
+    });
+}
+
 
 
 function getMathData() {
