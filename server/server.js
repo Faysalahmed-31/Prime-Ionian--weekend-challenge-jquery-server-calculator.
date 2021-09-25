@@ -1,7 +1,8 @@
      //require expressions
 	const express = require('express');
 	const bodyParser = require('body-parser');
-	
+	// an array
+    const calculation = [];
 
 	// declare and initialize app
 	const app = express();
@@ -20,3 +21,11 @@
 	    // kind of like our onReady function
 	    console.log('App is up and running!', port) ;
 	});
+
+    // GET endpoint
+ //sends back calculations array to client 
+
+   app.get('/calculate', (req,res) => {
+    console.log('sending back data'); // test to see if endpoint was hit
+    res.send(calculation);
+})
